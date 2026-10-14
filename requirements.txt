@@ -1,0 +1,24 @@
+# --- LLM SDKs ---
+google-genai              # Gemini API (official SDK)
+ollama                    # local models via Ollama (only if you use it)
+
+# --- Agent frameworks ---
+langchain
+langchain-core
+langchain-community
+langchain-google-genai    # Gemini chat + embeddings in LangChain
+langgraph                 # agent loops, state, tool calling
+
+# --- Memory / RAG ---
+qdrant-client
+langchain-qdrant
+pypdf                     # PDF loading
+
+# --- API server ---
+fastapi
+uvicorn[standard]
+
+# --- Utilities ---
+python-dotenv             # load API keys from .env
+pydantic                  # structured tool inputs/outputs
+requests                  # tools that call external APIs
