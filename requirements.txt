@@ -5,6 +5,7 @@ python-multipart        # needed for file uploads (/api/transcribe)
 pydantic
 pydantic-settings       # for app/config.py (reads .env)
 python-dotenv
+tavily
 
 # Gemini (LLM, embeddings, vision, speech)
 google-genai            # "from google import genai"
