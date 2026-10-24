@@ -10,7 +10,7 @@ def chunk(text,size=1100,overlap=180):
     return[text[i:i+size] for i in range(0,len(text),step) if len(text[i:i+size])>80]
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("--pdf",default='data/Gale Encyclopedia of Medicine Vol 1 2nd Edition - PDF Room.pdf')
+    parser.add_argument("--pdf",default='app/data/Gale Encyclopedia of Medicine Vol 1 2nd Edition - PDF Room.pdf')
     args=parser.parse_args()
     index=ensure_index()
     pdf=Path(args.pdf)

@@ -13,7 +13,7 @@ def ensure_index():
     gc,pc=clients()
     if not pc.has_index(settings.pinecone_index):
        pc.create_index(name=settings.pinecone_index, dimension=3072, metric="cosine", spec=ServerlessSpec(cloud="aws", region="us-east-1"))
-    return pc.index(settings.pinecone_index)
+    return pc.Index(settings.pinecone_index)
 def embed(texts):
     ai,_=clients()
     for attempt in range(6):
@@ -34,7 +34,7 @@ def embed(texts):
             time.sleep(wait)
     raise RuntimeError("Embedding failed after 6 retries")
 def search_kb(query,top_k=5):
-    index= ensure_index(),
+    index= ensure_index()
     vector=embed([query])[0]
     result=index.query(vector=vector ,top_k=top_k,include_metadata=True)
     matches = getattr(result, "matches", None) or []

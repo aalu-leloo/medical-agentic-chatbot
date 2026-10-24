@@ -68,7 +68,7 @@ def answer(state):
     user = f"Question: {state['question']}\nVisual observations (not diagnosis): {state.get('image_description','None')}\nHistorical PDF excerpts:\n{context or 'No relevant PDF excerpts'}\nExternal results:\n{websites or 'No external results'}"
     llm=GoogleGenerativeAI(model=settings.gemini_chat_model,temperature=0.1,api_key=settings.gemini_api_key,timeout=45,max_retries=1)
     response=llm.invoke([SystemMessage(content=SYSTEM),*history,HumanMessage(content=user)])
-    return {'answer':response.content}
+    return {'answer':response}
 
 
 
